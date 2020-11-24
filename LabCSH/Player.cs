@@ -1,14 +1,20 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Text;
 using System.Web.UI;
 
 namespace LabCSH
 {
+    public enum PlayerType { 
+        Machine, SmartMachine
+    }
     public abstract class Player
     {
 
         public string Name { get; set; }
         public char Symbol { get; set; }
+
+        public PlayerType type { get; set; }
 
         public Player(string NAME, char SYMB) {
             Name = NAME;
@@ -44,13 +50,11 @@ namespace LabCSH
         }
         public static bool operator !=(Player left, Player right)
         {
-            if (object.ReferenceEquals(left, null))
-            {
-                return !object.ReferenceEquals(right, null);
-            }
-
-            return !left.Equals(right);
+            return !(left==right);
         }
-        
+
+        public string Serialize() {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }

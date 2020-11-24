@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -139,6 +141,17 @@ namespace LabCSH
                 for (int y = 0; y < Size; y++)
                     Field[x][y] = DefSymbol;
         }
-       // public void GenerateField(int size)
+		// public void GenerateField(int size)
+
+		public string Serialize() {
+			return JsonConvert.SerializeObject(this);
+		}
+		public static Game Deserialize(string json) {
+			PlayerConverter playerConverter = new PlayerConverter();
+
+
+			return JsonConvert.DeserializeObject<Game>(json, playerConverter);
+
+		}
     }
 }

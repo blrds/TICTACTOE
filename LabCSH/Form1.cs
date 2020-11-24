@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -15,6 +16,7 @@ namespace LabCSH
     public partial class Form1 : Form
     {
         Game game;
+        bool gamePause;
 
         private List<Player> players;
         public Form1()
@@ -68,13 +70,18 @@ namespace LabCSH
                         }
                         continue;
                     }
-                    string s1, s2;
                     List<Pair> free_cells = game.GetFreeCells();
-                    Pair coords;
                     double time = game.Time;
                     bool moveMaked = false;
-                    actualPlayer.Text = p.Name;
                     Application.DoEvents();
+                    Thread.Sleep(350);
+                    while (gamePause)
+                    {
+                        Application.DoEvents();
+
+                        actualPlayer.Text = "Пауза";
+                    }
+                    actualPlayer.Text = p.Name;
                     while (time > 0)
                     {
                         Application.DoEvents();
@@ -111,19 +118,26 @@ namespace LabCSH
         }
 
         private void afterMatch()
-        {            
+        {
             addPlayer.Enabled = true;
-            delete.Enabled = true;
             makeMove.Enabled = false;
+            delete.Enabled = true;
+            pause.Enabled = false;
+            load.Enabled = true;
+            save.Enabled = false;
+            game = null;
         }
 
         private void START_Click(object sender, EventArgs e)
         {
+
             int x, y;
-            try {
+            try
+            {
                 x = Convert.ToInt32(fieldX.Text);
             }
-            catch (Exception exc) {
+            catch (Exception exc)
+            {
                 MessageBox.Show("Заданые размер не является числом", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -137,11 +151,12 @@ namespace LabCSH
                 return;
             }*/
             y = x;
-            if (x <= 2 || y <= 2) {
+            if (x <= 2 || y <= 2)
+            {
                 MessageBox.Show("Поле с данным размером не возможно", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            double time=0;
+            double time = 0;
             try
             {
                 time = Convert.ToInt32(sleepTime.Text);
@@ -150,12 +165,22 @@ namespace LabCSH
             {
                 MessageBox.Show("Введенное время не является числом", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            if (game == null) game = new Game(players, x, time, '%');
+            else
+            {
+                game.Size = x;
+                game.Time = time;
+            }
+
             addPlayer.Enabled = false;
             makeMove.Enabled = true;
             delete.Enabled = false;
-            
-            game = new Game(players, x, time, '%');
+            pause.Enabled = true;
+            load.Enabled = false;
+            save.Enabled = true;
             game_cycle();
+
+            game = null;
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
@@ -191,6 +216,9 @@ namespace LabCSH
             pbField.Image = new Bitmap(800, 800);
             delete.Enabled = true;
             makeMove.Enabled = false;
+            save.Enabled = false;
+            pause.Enabled = false;
+            game = null;
         }
 
         private void addPlayer_Click(object sender, EventArgs e)
@@ -250,6 +278,42 @@ namespace LabCSH
                 }
             }
             if (players.Count < 2) START.Enabled = false;
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+
+            string filePath="save.txt";
+            
+            using (StreamWriter sw = new StreamWriter(filePath, false, System.Text.Encoding.Default))
+            {
+                sw.WriteLine(game.Serialize());
+            }
+
+        }
+
+        private void pause_Click(object sender, EventArgs e)
+        {
+            gamePause=(gamePause) ? false : true; 
+        }
+
+        private void load_Click(object sender, EventArgs e)
+        {
+            string filePath = "save.txt";
+
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                game = Game.Deserialize(sr.ReadToEnd());    
+            }
+            players = game.Players;
+            playersVL.Items.Clear();
+            foreach (Player p in players) {
+                playersVL.Items.Add(p.ToString());
+            }
+            START.Enabled = true;
+            fieldX.Text = game.Size.ToString();
+            sleepTime.Text = game.Time.ToString();
+            
         }
     }
 }

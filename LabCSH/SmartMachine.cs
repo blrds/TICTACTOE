@@ -11,6 +11,7 @@ namespace LabCSH
     {
         public SmartMachine(string NAME, char SYMB) : base(NAME, SYMB)
         {
+			type = PlayerType.SmartMachine;
         }
 
 		public Pair WinCombo(Game game, char symb) {
@@ -213,14 +214,24 @@ namespace LabCSH
 			else return new Pair(-1, -1);
 		}
 
-        public static bool operator ==(SmartMachine left, Player right) {
-            if (left.Name == right.Name && left.Symbol == right.Symbol) return true;
-            else return false;
-        }
-        public static bool operator !=(SmartMachine left, Player right)
+		public override bool Equals(object obj)
+		{
+			return obj is Player player &&
+				   Name == player.Name &&
+				   Symbol == player.Symbol;
+		}
+		public static bool operator ==(SmartMachine left, Player right) {
+			if (object.ReferenceEquals(left, null))
+			{
+				return object.ReferenceEquals(right, null);
+			}
+
+			return left.Equals(right);
+
+		}
+		public static bool operator !=(SmartMachine left, Player right)
         {
-            if (left.Name == right.Name && left.Symbol == right.Symbol) return false;
-            else return true;
+			return !(left == right);
         }
     }
 }

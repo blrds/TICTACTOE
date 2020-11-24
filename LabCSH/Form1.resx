@@ -138,7 +138,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pbField.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="START.Location" type="System.Drawing.Point, System.Drawing">
     <value>818, 619</value>
@@ -162,7 +162,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;START.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="fieldX.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 19</value>
@@ -327,7 +327,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbPlayers.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="actualPlayer.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -382,6 +382,114 @@
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;delete.Name" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="&gt;&gt;delete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;delete.Parent" xml:space="preserve">
+    <value>gbAdd</value>
+  </data>
+  <data name="&gt;&gt;delete.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;rbSmart.Name" xml:space="preserve">
+    <value>rbSmart</value>
+  </data>
+  <data name="&gt;&gt;rbSmart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbSmart.Parent" xml:space="preserve">
+    <value>gbAdd</value>
+  </data>
+  <data name="&gt;&gt;rbSmart.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;rbMachine.Name" xml:space="preserve">
+    <value>rbMachine</value>
+  </data>
+  <data name="&gt;&gt;rbMachine.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbMachine.Parent" xml:space="preserve">
+    <value>gbAdd</value>
+  </data>
+  <data name="&gt;&gt;rbMachine.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;addPlayer.Name" xml:space="preserve">
+    <value>addPlayer</value>
+  </data>
+  <data name="&gt;&gt;addPlayer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;addPlayer.Parent" xml:space="preserve">
+    <value>gbAdd</value>
+  </data>
+  <data name="&gt;&gt;addPlayer.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;charBox.Name" xml:space="preserve">
+    <value>charBox</value>
+  </data>
+  <data name="&gt;&gt;charBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;charBox.Parent" xml:space="preserve">
+    <value>gbAdd</value>
+  </data>
+  <data name="&gt;&gt;charBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>gbAdd</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>gbAdd</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="gbAdd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>818, 226</value>
+  </data>
+  <data name="gbAdd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 230</value>
+  </data>
+  <data name="gbAdd.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="gbAdd.Text" xml:space="preserve">
+    <value>Добавить игрока</value>
+  </data>
+  <data name="&gt;&gt;gbAdd.Name" xml:space="preserve">
+    <value>gbAdd</value>
+  </data>
+  <data name="&gt;&gt;gbAdd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbAdd.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gbAdd.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="delete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -561,30 +669,6 @@
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="gbAdd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>818, 226</value>
-  </data>
-  <data name="gbAdd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 230</value>
-  </data>
-  <data name="gbAdd.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="gbAdd.Text" xml:space="preserve">
-    <value>Добавить игрока</value>
-  </data>
-  <data name="&gt;&gt;gbAdd.Name" xml:space="preserve">
-    <value>gbAdd</value>
-  </data>
-  <data name="&gt;&gt;gbAdd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbAdd.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gbAdd.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="gbField.Location" type="System.Drawing.Point, System.Drawing">
     <value>818, 462</value>
   </data>
@@ -607,7 +691,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbField.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;makeMove.Name" xml:space="preserve">
     <value>makeMove</value>
@@ -679,7 +763,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gbBot.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="makeMove.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 59</value>
@@ -782,6 +866,87 @@
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="save.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="save.Location" type="System.Drawing.Point, System.Drawing">
+    <value>818, 726</value>
+  </data>
+  <data name="save.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 40</value>
+  </data>
+  <data name="save.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="save.Text" xml:space="preserve">
+    <value>Сохранить игру</value>
+  </data>
+  <data name="&gt;&gt;save.Name" xml:space="preserve">
+    <value>save</value>
+  </data>
+  <data name="&gt;&gt;save.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;save.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;save.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="pause.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pause.Location" type="System.Drawing.Point, System.Drawing">
+    <value>818, 665</value>
+  </data>
+  <data name="pause.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 40</value>
+  </data>
+  <data name="pause.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="pause.Text" xml:space="preserve">
+    <value>ПАУЗА</value>
+  </data>
+  <data name="&gt;&gt;pause.Name" xml:space="preserve">
+    <value>pause</value>
+  </data>
+  <data name="&gt;&gt;pause.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pause.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pause.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="load.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="load.Location" type="System.Drawing.Point, System.Drawing">
+    <value>818, 772</value>
+  </data>
+  <data name="load.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 40</value>
+  </data>
+  <data name="load.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="load.Text" xml:space="preserve">
+    <value>Заугрузить игру</value>
+  </data>
+  <data name="&gt;&gt;load.Name" xml:space="preserve">
+    <value>load</value>
+  </data>
+  <data name="&gt;&gt;load.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;load.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;load.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

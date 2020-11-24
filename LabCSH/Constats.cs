@@ -1,0 +1,6 @@
+﻿namespace LabCSH
+{
+    class Constats { 
+        
+    }
+}

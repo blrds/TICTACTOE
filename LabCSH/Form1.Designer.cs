@@ -40,6 +40,7 @@
             this.actualPlayer = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gbAdd = new System.Windows.Forms.GroupBox();
+            this.delete = new System.Windows.Forms.Button();
             this.rbSmart = new System.Windows.Forms.RadioButton();
             this.rbMachine = new System.Windows.Forms.RadioButton();
             this.addPlayer = new System.Windows.Forms.Button();
@@ -52,7 +53,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.sleepTime = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.delete = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
+            this.pause = new System.Windows.Forms.Button();
+            this.load = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbField)).BeginInit();
             this.gbPlayers.SuspendLayout();
             this.gbAdd.SuspendLayout();
@@ -138,6 +141,13 @@
             this.gbAdd.Name = "gbAdd";
             this.gbAdd.TabStop = false;
             // 
+            // delete
+            // 
+            resources.ApplyResources(this.delete, "delete");
+            this.delete.Name = "delete";
+            this.delete.UseVisualStyleBackColor = true;
+            this.delete.Click += new System.EventHandler(this.delete_Click);
+            // 
             // rbSmart
             // 
             resources.ApplyResources(this.rbSmart, "rbSmart");
@@ -217,17 +227,34 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
-            // delete
+            // save
             // 
-            resources.ApplyResources(this.delete, "delete");
-            this.delete.Name = "delete";
-            this.delete.UseVisualStyleBackColor = true;
-            this.delete.Click += new System.EventHandler(this.delete_Click);
+            resources.ApplyResources(this.save, "save");
+            this.save.Name = "save";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
+            // pause
+            // 
+            resources.ApplyResources(this.pause, "pause");
+            this.pause.Name = "pause";
+            this.pause.UseVisualStyleBackColor = true;
+            this.pause.Click += new System.EventHandler(this.pause_Click);
+            // 
+            // load
+            // 
+            resources.ApplyResources(this.load, "load");
+            this.load.Name = "load";
+            this.load.UseVisualStyleBackColor = true;
+            this.load.Click += new System.EventHandler(this.load_Click);
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.load);
+            this.Controls.Add(this.pause);
+            this.Controls.Add(this.save);
             this.Controls.Add(this.gbBot);
             this.Controls.Add(this.gbField);
             this.Controls.Add(this.gbAdd);
@@ -275,6 +302,9 @@
         private System.Windows.Forms.Label actualPlayer;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button delete;
+        private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Button pause;
+        private System.Windows.Forms.Button load;
     }
 }
 

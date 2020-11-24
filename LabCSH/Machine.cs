@@ -9,7 +9,8 @@ namespace LabCSH
 {
     class Machine : Player
     {
-        public Machine(string NAME, char SYMB): base(NAME, SYMB) { 
+        public Machine(string NAME, char SYMB): base(NAME, SYMB) {
+            type = PlayerType.Machine;
         }
 
         public override Pair invent_move(Game game)
@@ -21,16 +22,25 @@ namespace LabCSH
             free_cells = game.GetFreeCells();
             return free_cells[(int)r.NextDouble() * (free_cells.Count)];   
         }
+        public override bool Equals(object obj)
+        {
+            return obj is Player player &&
+                   Name == player.Name &&
+                   Symbol == player.Symbol;
+        }
 
         public static bool operator ==(Machine left, Player right)
         {
-            if (left.Name == right.Name && left.Symbol == right.Symbol) return true;
-            else return false;
+            if (object.ReferenceEquals(left, null))
+            {
+                return object.ReferenceEquals(right, null);
+            }
+
+            return left.Equals(right); 
 
         }
         public static bool operator !=(Machine left, Player right) {
-            if (left.Name == right.Name && left.Symbol == right.Symbol) return false;
-            else return true;
+            return !(left == right);
         }
     }
 }
