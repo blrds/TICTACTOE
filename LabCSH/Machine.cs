@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.UI;
 
 namespace LabCSH
 {
-    class Machine : Player
+    public class Machine : Player
     {
         public Machine(string NAME, char SYMB): base(NAME, SYMB) {
             type = PlayerType.Machine;
