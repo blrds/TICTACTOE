@@ -7,21 +7,24 @@ namespace LabCSH
 {
     public class Game
     {
-        public char DefSymbol { get; set; }
+		char defSymbol;
+        public char DefSymbol { get=>defSymbol;}
 
-        public int Size { get; set; }
+		int size;
+        public int Size { get=>size; }
 
         public List<List<char>> Field { get; set; }
 
-        public List<Player> Players { get; set; }
+		List<Player> players;
+        public List<Player> Players { get=>players;}
 
         public Player OrderedPlayer { get; set; }
 		
 		public double Time { get; set; }
         public Game(List<Player> players, int size = 3, double time =0,char empty = ' ') {
-            Players = players;
-            Size = size;
-            DefSymbol = empty;
+            this.players = players;
+            this.size = size;
+            defSymbol = empty;
 			Field = new List<List<char>>();
 			OrderedPlayer = null;
 			Time = time;
@@ -34,9 +37,10 @@ namespace LabCSH
             }
         }
 
-        public bool Set(Pair coords, char symb) {
-            if ((int)coords.First!= -1 && (int)coords.Second != -1)
-               Field[(int)coords.First][(int)coords.Second] = symb;
+        public bool Set(Tuple<int,int> coords, char symb) {
+			if (coords.Item1 != -1 && coords.Item2 != -1 && Field[coords.Item1][coords.Item2] != DefSymbol)
+				Field[coords.Item1][coords.Item2] = symb;
+			else throw new Exception("Wrong coords");
 
             if (CheckWin(symb))
                 return true;
@@ -44,12 +48,12 @@ namespace LabCSH
                 return false;
         }
 
-        public List<Pair> GetFreeCells() {
-            List<Pair> free_cells = new List<Pair>();
+        public List<Tuple<int,int>> GetFreeCells() {
+            List<Tuple<int,int>> free_cells = new List<Tuple<int,int>>();
             for (int y = 0; y < Size; y++)
                 for (int x = 0; x < Size; x++)
                     if (Field[x][y] == DefSymbol)
-                        free_cells.Add(new Pair(x, y));
+                        free_cells.Add(new Tuple<int,int>(x, y));
             return free_cells;
         }
 
@@ -125,11 +129,7 @@ namespace LabCSH
 		}
 
         public bool CheckWin(char symb) {
-			int marker = 0;
-			marker += Convert.ToInt32(ColumCheck(symb));
-			marker += Convert.ToInt32(LineCheck(symb));
-			marker += Convert.ToInt32(DiagonalCheck(symb));
-			return marker>0 ?true : false;
+			return ColumCheck(symb) || LineCheck(symb) || DiagonalCheck(symb);
 		}
 
         public void Clear() {
@@ -137,8 +137,6 @@ namespace LabCSH
                 for (int y = 0; y < Size; y++)
                     Field[x][y] = DefSymbol;
         }
-		// public void GenerateField(int size)
-
 		public string Serialize() {
 			return JsonConvert.SerializeObject(this);
 		}

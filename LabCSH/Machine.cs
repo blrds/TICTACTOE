@@ -6,18 +6,17 @@ namespace LabCSH
 {
     public class Machine : Player
     {
-        public Machine(string NAME, char SYMB): base(NAME, SYMB) {
-            type = PlayerType.Machine;
+        public Machine(string name, char symb): base(name, symb) {
+            type = this.GetType();
         }
 
-        public override Pair invent_move(Game game)
+        public override Tuple<int,int> InventMove(Game game)
         {
-            if (game.GetFreeCells().Count==0)
-                return new Pair(-1,-1);
-            Random r = new Random();
-            List<Pair> free_cells;
-            free_cells = game.GetFreeCells();
-            return free_cells[(int)r.NextDouble() * (free_cells.Count)];   
+            List<Tuple<int, int>> freeCells;
+            freeCells = game.GetFreeCells();
+            if (freeCells.Count==0)
+                return new Tuple<int, int>(-1,-1);
+            return freeCells[r.Next(0,freeCells.Count)];   
         }
         public override bool Equals(object obj)
         {

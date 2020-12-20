@@ -11,11 +11,11 @@ namespace LabCSH
     {
         protected override Player Create(Type objectType, JObject jObject)
         {
-            switch ((PlayerType)jObject["type"].Value<int>())
+            switch (jObject["Type"].Value<string>())
             {
-                case PlayerType.Machine:
+                case "LabCHS.Machine":
                     return new Machine(jObject["Name"].ToString(), jObject["Symbol"].ToString()[0]);
-                case PlayerType.SmartMachine:
+                case "LabCHS.SmartMachine":
                     return new SmartMachine(jObject["Name"].ToString(), jObject["Symbol"].ToString()[0]);
             }
             return null;

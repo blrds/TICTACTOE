@@ -1,25 +1,26 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Text;
 using System.Web.UI;
 
 namespace LabCSH
 {
-    public enum PlayerType { 
-        Machine, SmartMachine
-    }
     public abstract class Player
     {
-
+        protected Random r { get; set; }
         public string Name { get; set; }
         public char Symbol { get; set; }
 
-        public PlayerType type { get; set; }
+        protected Type type;
 
-        public Player(string NAME, char SYMB) {
-            Name = NAME;
-            Symbol = SYMB;
+        public string Type { get => type.ToString(); }
+
+        public Player(string name, char symb) {
+            Name = name;
+            Symbol = symb;
+            r = new Random();
         }
-        public abstract Pair invent_move(Game game);
+        public abstract Tuple<int,int> InventMove(Game game);
 
         public override string ToString()
         {

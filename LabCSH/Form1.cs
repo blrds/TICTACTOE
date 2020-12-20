@@ -70,7 +70,7 @@ namespace LabCSH
                         }
                         continue;
                     }
-                    List<Pair> free_cells = game.GetFreeCells();
+                    List<Tuple<int,int>> free_cells = game.GetFreeCells();
                     double time = game.Time;
                     bool moveMaked = false;
                     Application.DoEvents();
@@ -101,7 +101,23 @@ namespace LabCSH
                     }
                     if (!moveMaked)
                     {
-                        if (game.Set(p.invent_move(game), p.Symbol))
+                        bool flagSet = false;
+                        Exception exp;
+                        do
+                        {
+                            exp= null;
+                            try
+                            {
+                                flagSet = game.Set(p.InventMove(game), p.Symbol);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                exp = ex;
+                            }
+                        } while (exp != null);
+                        
+                        if (flagSet)
                         {
                             drawField(game);
                             MessageBox.Show("Поздравляем игрока " + p.Name + " с победой", "Игра окончена", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -166,12 +182,7 @@ namespace LabCSH
                 MessageBox.Show("Введенное время не является числом", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (game == null) game = new Game(players, x, time, '%');
-            else
-            {
-                game.Size = x;
-                game.Time = time;
-            }
-
+            
             addPlayer.Enabled = false;
             makeMove.Enabled = true;
             delete.Enabled = false;
